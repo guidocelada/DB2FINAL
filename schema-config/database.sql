@@ -13,3 +13,8 @@ CREATE TABLE `product` (
   `description` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `product` (`id`, `name`, `stock`, `price`, `description`)
+VALUES
+	(1, 'Loren', 1, 11, 'loren!'),
+	(2, 'Ipsum', 2, 22, 'Ipsum!\n');
