@@ -23,7 +23,7 @@ public class ProductController {
 	private ProductService productService;
 	
 	@RequestMapping(value = "/get/{product-id}", method = RequestMethod.GET)
-	public @ResponseBody Product get(@PathVariable("location-id") long id) { //FIXME
+	public @ResponseBody Product get(@PathVariable("product-id") long id) { //FIXME
 		return productService.getById(id);
 	}
 	
