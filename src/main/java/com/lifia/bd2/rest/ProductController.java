@@ -22,15 +22,13 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	@RequestMapping(value = "/get/{product-id}",  headers="Accept=*/*", method = RequestMethod.GET)
-	@ResponseBody 
-	public Product get(@PathVariable("location-id") long id) { //FIXME
+	@RequestMapping(value = "/get/{product-id}", method = RequestMethod.GET)
+	public @ResponseBody Product get(@PathVariable("location-id") long id) { //FIXME
 		return productService.getById(id);
 	}
 	
-	@RequestMapping(value = "/list",  headers="Accept=*/*", method = RequestMethod.GET)
-	@ResponseBody 
-  public List<Product> list() {
+  @RequestMapping(value = "/list", method = RequestMethod.GET)
+  public @ResponseBody List<Product> list() {
 	  return productService.getAll();
   }
 	
