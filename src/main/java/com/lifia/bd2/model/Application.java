@@ -20,10 +20,10 @@ public class Application {
   }
 
   public void addCart(Cart cart) {
-    carts.add(cart);
+    getCarts().add(cart);
   }
   
   public void removeCart(Cart cart) {
-    carts.add(cart);
+    getCarts().remove(cart);
   }
 }

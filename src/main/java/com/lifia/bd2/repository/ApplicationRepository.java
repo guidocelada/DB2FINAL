@@ -20,7 +20,7 @@ public class ApplicationRepository {
   }
   
   public Application getApp() {
-    long i = 1;
-    return (Application) getSession().get(Application.class, i);
+    long id = 1;
+    return (Application) getSession().get(Application.class, id);
   }
 }

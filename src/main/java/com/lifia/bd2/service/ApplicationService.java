@@ -1,5 +1,7 @@
 package com.lifia.bd2.service;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,4 +24,11 @@ public class ApplicationService {
     getApp().addCart(cart);
   }
   
+  public Set<Cart> getCarts() {
+    return getApp().getCarts();
+  }
+  
+  public void removeCart(Cart cart) {
+    getApp().getCarts().add(cart);
+  }
 }

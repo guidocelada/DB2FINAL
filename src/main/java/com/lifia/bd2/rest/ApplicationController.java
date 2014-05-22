@@ -24,7 +24,7 @@ public class ApplicationController {
 	 * Creates a token for the cart 
 	 * @returns the token of the cart that it's later used for cart operations
 	 */
-	@RequestMapping(value = "/createCart/{site-token}/{user-id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/createCart/{site-token}/{user-id}", method = RequestMethod.POST)
 	public @ResponseBody String get(@PathVariable("site-token") String siteToken, @PathVariable("user-id") String userId) { 
 	  
 	//  Cart cart = new Cart(userId, );
@@ -36,13 +36,13 @@ public class ApplicationController {
 	
 	
 	//TODO: 
-	//create cart
-	//add 1 qty of product to cart
-	//add n qty of product to cart
-	//retrieve qty of product in cart
-	//retrieve products & qty in cart
-	//remove 1 qty of product in cart
-	//remove n qty of product in cart
-	//set n as qty of product in cart
-	//delete cart
+	//create cart @RequestMapping(value = "/createCart/{site-token}/{user-id}", method = RequestMethod.POST)
+	//add 1 qty of product to cart @RequestMapping(value = "addProduct/{cart-token}/{id-product}", method = RequestMethod.POST)
+	//add n qty of product to cart @RequestMapping(value = "addProduct/{cart-token}/{id-product}/{quantity}", method = RequestMethod.POST)
+	//retrieve qty of product in cart @RequestMapping(value = "getProductQuantity/{cart-token}/{id-product}", method = RequestMethod.GET)
+	//retrieve products & qty in cart @RequestMapping(value = "getProducts/{cart-token}", method = RequestMethod.GET)
+	//remove 1 qty of product in cart @RequestMapping(value = "removeOneQuantityOfProduct/{cart-token}/{id-product}", method = RequestMethod.DELETE)
+	//remove n qty of product in cart @RequestMapping(value = "removeOneQuantityOfProduct/{cart-token}/{id-product}/{quantity}", method = RequestMethod.DELETE)
+	//set n as qty of product in cart @RequestMapping(value = "setQuantity/{cart-token}/{id-product}", method = RequestMethod.POST)
+	//delete cart @RequestMapping(value = "deleteCart/{cart-token}", method = RequestMethod.DELETE)
 }
