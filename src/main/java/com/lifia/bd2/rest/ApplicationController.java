@@ -20,17 +20,29 @@ public class ApplicationController {
 	@Autowired
 	private ApplicationService appService;
 	
-	/*
-	@RequestMapping(value = "/get/{product-id}", method = RequestMethod.GET)
-	public @ResponseBody Product get(@PathVariable("product-id") long id) { 
-		return productService.getById(id);
-	} */
-	
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public @ResponseBody String test() {
-	  Cart[] carts = (Cart[]) appService.getApp().getCarts().toArray();
+	/**
+	 * Creates a token for the cart 
+	 * @returns the token of the cart that it's later used for cart operations
+	 */
+	@RequestMapping(value = "/createCart/{site-token}/{user-id}", method = RequestMethod.GET)
+	public @ResponseBody String get(@PathVariable("site-token") String siteToken, @PathVariable("user-id") String userId) { 
 	  
-	  return carts[1].getUser();
-	}
+	//  Cart cart = new Cart(userId, );
+	  
+	 // appService.addCart(cart);
+	  return null;
+	} 
 	
+	
+	
+	//TODO: 
+	//create cart
+	//add 1 qty of product to cart
+	//add n qty of product to cart
+	//retrieve qty of product in cart
+	//retrieve products & qty in cart
+	//remove 1 qty of product in cart
+	//remove n qty of product in cart
+	//set n as qty of product in cart
+	//delete cart
 }

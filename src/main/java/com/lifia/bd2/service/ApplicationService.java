@@ -22,7 +22,4 @@ public class ApplicationService {
     getApp().addCart(cart);
   }
   
-  public void getCart(Cart cart) {
-    getApp().addCart(cart);
-  }
 }

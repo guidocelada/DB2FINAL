@@ -20,7 +20,8 @@
         	<generator class="native"/>
         </id>
         <property name="user" access="field"/>
-        <many-to-one name="site" cascade="all" />
+        <property name="token" access="field"/>
+        <many-to-one name="site" cascade="all"  />
         <map name="products" access="field">
 		    <key column="cart_id"/>
 		    <map-key type="string"/>
