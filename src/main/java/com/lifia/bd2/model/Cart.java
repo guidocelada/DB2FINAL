@@ -5,7 +5,7 @@ import java.util.Collection;
 
 public class Cart {
   @SuppressWarnings("unused")
-  private long id;
+  private long id; //For hibernate
   
   private String user;
   

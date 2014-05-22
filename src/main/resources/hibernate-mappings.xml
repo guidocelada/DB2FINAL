@@ -9,7 +9,7 @@
         <id name="id" column="application_id" access="field">
         	<generator class="native"/>
         </id>
-        <set name="carts" cascade="all" >
+        <set name="carts" cascade="all" access="field" >
 	    	<key column="application_id" />
 	    	<one-to-many class="com.lifia.bd2.model.Cart" />
 	    </set>
@@ -30,7 +30,7 @@
         <id name="id" column="product_internal_id" access="field"> <!-- autoincremental internal id -->
         	<generator class="native"/>
         </id>
-        <property name="productId" /> <!-- the id that a site provides -->
+        <property name="productId" access="field"/> <!-- the id that a site provides -->
         <property name="quantity" />
     </class>
     
