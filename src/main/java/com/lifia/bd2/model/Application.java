@@ -11,8 +11,11 @@ public class Application {
   
   private Set<Cart> carts;
   
+  private Set<Site> sites;
+  
   public Application() {
     this.carts = new HashSet<Cart>();
+    this.sites = new HashSet<Site>();
   }
   
   public Set<Cart> getCarts() {
@@ -25,5 +28,17 @@ public class Application {
   
   public void removeCart(Cart cart) {
     getCarts().remove(cart);
+  }
+  
+  public Set<Site> getSites() {
+    return sites;
+  }
+  
+  public void addSite(Site site) {
+    getSites().add(site);
+  }
+  
+  public void removeSite(Site site) {
+    getSites().remove(site);
   }
 }

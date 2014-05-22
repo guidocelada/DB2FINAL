@@ -13,6 +13,7 @@
 	    	<key column="application_id" />
 	    	<one-to-many class="com.lifia.bd2.model.Cart" />
 	    </set>
+	    <many-to-one name="site" cascade="all" />
     </class>
     
     <class name="com.lifia.bd2.model.Cart">
@@ -21,7 +22,7 @@
         </id>
         <property name="user" access="field"/>
         <property name="token" access="field"/>
-        <many-to-one name="site" cascade="all"  />
+        <many-to-one name="site" cascade="all" />
         <map name="products" access="field">
 		    <key column="cart_id"/>
 		    <map-key type="string"/>
