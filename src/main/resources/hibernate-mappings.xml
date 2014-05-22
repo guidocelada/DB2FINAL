@@ -19,19 +19,21 @@
         <id name="id" column="cart_id" access="field">
         	<generator class="native"/>
         </id>
-        <property name="user" />
-        <set name="products" cascade="all">
-        	<key column="cart_id"/>
-	    	<one-to-many class="com.lifia.bd2.model.Product" />
-		</set>
+        <property name="user" access="field"/>
+        <many-to-one name="site" cascade="all" />
+        <map name="products" access="field">
+		    <key column="cart_id"/>
+		    <map-key type="string"/>
+		    <element type="integer"/>
+		</map>
     </class>
     
-    <class name="com.lifia.bd2.model.Product">
-        <id name="id" column="product_internal_id" access="field"> <!-- autoincremental internal id -->
+    <class name="com.lifia.bd2.model.Site">
+        <id name="id" column="site_id" access="field">
         	<generator class="native"/>
         </id>
-        <property name="productId" access="field"/> <!-- the id that a site provides -->
-        <property name="quantity" />
+        <property name="token" access="field"/>
+		<property name="name" access="field"/>
     </class>
     
 </hibernate-mapping>

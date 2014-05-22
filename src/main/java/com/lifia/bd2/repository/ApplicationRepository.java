@@ -15,10 +15,6 @@ public class ApplicationRepository {
   @Autowired
   private SessionFactory sessionFactory;
 
-  public void save() {
-    getSession().save(getApp());
-  }
-
   private Session getSession(){
     return sessionFactory.getCurrentSession();
   }

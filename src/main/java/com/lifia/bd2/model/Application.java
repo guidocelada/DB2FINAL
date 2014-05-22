@@ -1,6 +1,7 @@
 package com.lifia.bd2.model;
 
-import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class Application {
@@ -8,9 +9,13 @@ public class Application {
   @SuppressWarnings("unused")
   private long id; //For hibernate
   
-  private Collection<Cart> carts;
+  private Set<Cart> carts;
   
-  public Collection<Cart> getCarts() {
+  public Application() {
+    this.carts = new HashSet<Cart>();
+  }
+  
+  public Set<Cart> getCarts() {
     return carts;
   }
 

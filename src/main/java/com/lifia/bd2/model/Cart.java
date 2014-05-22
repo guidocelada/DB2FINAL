@@ -1,6 +1,7 @@
 package com.lifia.bd2.model;
 
-import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Cart {
@@ -9,22 +10,30 @@ public class Cart {
   
   private String user;
   
-  private Collection<Product> products;
+  private Map<String, Integer> products;
+  
+  protected Cart() {
+    products = new HashMap<String, Integer>();
+  }
+  
+  public Cart(String user) {
+    this();
+    this.user = user;
+  }
 
-  public Collection<Product> getProducts() {
+  public Map<String, Integer> getProducts() {
     return products;
   }
 
-  public void setProducts(Collection<Product> products) {
-    this.products = products;
+  public void addProduct(String productId) {
+    if (products.containsKey(productId))
+      products.put(productId, products.get(productId) + 1);
+    else
+      products.put(productId, 1);
   }
 
   public String getUser() {
     return user;
-  }
-
-  public void setUser(String user) {
-    this.user = user;
   }
 
 }
