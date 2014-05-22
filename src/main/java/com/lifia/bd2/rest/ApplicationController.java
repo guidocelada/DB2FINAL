@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lifia.bd2.model.Cart;
+import com.lifia.bd2.model.Site;
 import com.lifia.bd2.service.ApplicationService;
 
 @Controller
@@ -26,17 +27,15 @@ public class ApplicationController {
 	 */
 	@RequestMapping(value = "/createCart/{site-token}/{user-id}", method = RequestMethod.POST)
 	public @ResponseBody String get(@PathVariable("site-token") String siteToken, @PathVariable("user-id") String userId) { 
-	  
-	//  Cart cart = new Cart(userId, );
-	  
-	 // appService.addCart(cart);
-	  return null;
+	  Site site = appService.getApp().getSiteByToken(siteToken);   
+	  Cart cart = new Cart(userId, site);
+	  appService.addCart(cart);
+	  return cart.getToken();
 	} 
 	
-	
+
 	
 	//TODO: 
-	//create cart @RequestMapping(value = "/createCart/{site-token}/{user-id}", method = RequestMethod.POST)
 	//add 1 qty of product to cart @RequestMapping(value = "addProduct/{cart-token}/{id-product}", method = RequestMethod.POST)
 	//add n qty of product to cart @RequestMapping(value = "addProduct/{cart-token}/{id-product}/{quantity}", method = RequestMethod.POST)
 	//retrieve qty of product in cart @RequestMapping(value = "getProductQuantity/{cart-token}/{id-product}", method = RequestMethod.GET)

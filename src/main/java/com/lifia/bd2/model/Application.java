@@ -41,4 +41,11 @@ public class Application {
   public void removeSite(Site site) {
     getSites().remove(site);
   }
+  
+  public Site getSiteByToken(String token) {
+    for (Site site : getSites())
+      if (site.getToken() == token)
+        return site;
+    return null;
+  }
 }
