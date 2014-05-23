@@ -20,15 +20,15 @@ public class ApplicationService {
     return appRepository.getApp();
   }
   
-  public void addCart(Cart cart) {
-    getApp().addCart(cart);
-  }
-  
-  public Set<Cart> getCarts() {
-    return getApp().getCarts();
-  }
-  
-  public void removeCart(Cart cart) {
-    getApp().getCarts().add(cart);
-  }
+//  public void addCart(Cart cart) {
+//    getApp().addCart(cart);
+//  }
+//  
+//  public Set<Cart> getCarts() {
+//    return getApp().getCarts();
+//  }
+//  
+//  public void removeCart(Cart cart) {
+//    getApp().getCarts().add(cart);
+//  }
 }

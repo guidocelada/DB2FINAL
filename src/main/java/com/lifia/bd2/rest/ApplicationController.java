@@ -26,10 +26,11 @@ public class ApplicationController {
 	 * @returns the token of the cart that it's later used for cart operations
 	 */
 	@RequestMapping(value = "/createCart/{site-token}/{user-id}", method = RequestMethod.POST)
-	public @ResponseBody String get(@PathVariable("site-token") String siteToken, @PathVariable("user-id") String userId) { 
+	public @ResponseBody String createCart(@PathVariable("site-token") String siteToken, @PathVariable("user-id") String userId) { 
+	  System.out.println("ENTRA");
 	  Site site = appService.getApp().getSiteByToken(siteToken);   
 	  Cart cart = new Cart(userId, site);
-	  appService.addCart(cart);
+	  appService.getApp().addCart(cart); 
 	  return cart.getToken();
 	} 
 	

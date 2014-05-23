@@ -2,7 +2,6 @@ package com.lifia.bd2.model;
 
 import java.util.UUID;
 
-
 public class Site {
   @SuppressWarnings("unused")
   private long id; //For hibernate
