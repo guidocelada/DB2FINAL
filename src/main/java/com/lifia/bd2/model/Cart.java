@@ -49,11 +49,22 @@ public class Cart {
    * The minimum quantity is 1
    */
   public void addProduct(String productId, int quantity) {
-    if (quantity > 0)
-      if (this.containsProduct(productId))
-        products.put(productId, products.get(productId) + quantity);
-      else
+    if (quantity <= 0)return;
+    
+    if (this.containsProduct(productId))
+        this.setProduct(productId, products.get(productId) + quantity);
+    else
         products.put(productId, quantity);
+  }
+  
+  /**
+   * Sets the quantity of the product from the cart
+   * If quantity equals 0, the product will be removed from the cart
+   */
+  public void setProduct(String productId,int quantity){
+      if(quantity<0)return;
+      if(quantity==0)removeProduct(productId);
+      products.put(productId,quantity);
   }
   
   /**

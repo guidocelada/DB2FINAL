@@ -58,12 +58,12 @@ public class ApplicationService {
     return 0;
   }
 
-  public void removeQuantityOfProduct(String cartToken, String idProduct, int qty) {
+  public void setQuantity(String cartToken, String idProduct, int i) {
     Application app = getApp();
     Cart cart = app.getCartByToken(cartToken);
-    if (cart != null) {
-      cart.removeProductQuantity(idProduct, qty);
-    }
+    if (cart != null)
+      cart.setProduct(idProduct, i);
   }
+   
 
 }
