@@ -44,21 +44,21 @@ public class Application {
   
   public Site getSiteByToken(String token) {
     for (Site site : getSites())
-      if (site.getToken() == token)
+      if (site.getToken().compareTo(token)== 0)
         return site;
     return null;
   }
   
   public Site getSiteByName(String name) {
     for (Site site : getSites())
-      if (site.getName() == name)
+      if (site.getName().compareTo(name)== 0)
         return site;
     return null;
   }
   
   public Cart getCartByToken(String token) {
     for (Cart cart : getCarts())
-      if (cart.getToken() == token)
+      if (cart.getToken().compareTo(token)== 0)
         return cart;
     return null;
   }
