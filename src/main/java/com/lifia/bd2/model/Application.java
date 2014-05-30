@@ -3,11 +3,7 @@ package com.lifia.bd2.model;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-@Service
-@Transactional
 public class Application {
   
   @SuppressWarnings("unused")
@@ -57,6 +53,13 @@ public class Application {
     for (Site site : getSites())
       if (site.getName() == name)
         return site;
+    return null;
+  }
+  
+  public Cart getCartByToken(String token) {
+    for (Cart cart : getCarts())
+      if (cart.getToken() == token)
+        return cart;
     return null;
   }
 }
