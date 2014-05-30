@@ -1,0 +1,4 @@
+To recreate the DB schema, go to database-config and execute recreateSchema.sh.
+It needs a connection to mysql with user = "root" and password = ""
+
+You can also do it manually by executing "data.sql" your way.
