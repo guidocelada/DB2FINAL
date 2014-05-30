@@ -52,5 +52,15 @@
     
     <tx:annotation-driven/>
     
-    
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+    <property name="messageConverters">
+        <list>
+            <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter" />
+            <bean class="org.springframework.http.converter.FormHttpMessageConverter" />
+            <bean class="org.springframework.http.converter.xml.SourceHttpMessageConverter" />
+            <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+        </list>
+    </property>
+</bean>
 </beans>

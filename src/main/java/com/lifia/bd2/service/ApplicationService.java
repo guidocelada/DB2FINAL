@@ -3,6 +3,7 @@ package com.lifia.bd2.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lifia.bd2.model.Application;
 import com.lifia.bd2.model.Cart;
@@ -65,9 +66,18 @@ public class ApplicationService {
       cart.setProduct(idProduct, i);
   }
    
-  public Cart getCart(String cartToken) {
+  public @ResponseBody Cart getCart(String cartToken) {
     Application app = getApp();
-    return app.getCartByToken(cartToken);
+    Cart cart = app.getCartByToken(cartToken);
+    cart.getProducts();
+    return cart;
+  }
+  
+  public void removeProduct(String cartToken, String productId) {
+    Application app = getApp();
+    Cart cart = app.getCartByToken(cartToken);
+    if (cart != null)
+      cart.removeProduct(productId);
   }
   
 }

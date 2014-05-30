@@ -1,0 +1,96 @@
+
+/**
+ * Registers a site (if new).
+ *
+ * @returns the token of the site (existing or new site)
+ */
+
+URL = /token/{site-name} 
+METHOD = GET & POST 
+
+
+
+/**
+ * Creates a token for the cart.
+ *
+ * @returns the token of the cart that it's later used for cart operations. it returns a new token every time you call the method.
+ */
+
+URL = /token/{site-token}/{user-id}
+METHOD = POST
+
+
+
+/**
+ * @returns the cart for the given token
+ */
+
+URL = /cart/{cart-token}
+METHOD = GET
+
+
+
+/**
+ * Deletes a Cart if exists
+ */
+
+URL = /cart/{cart-token}
+METHOD =  DELETE
+
+
+
+/**
+ * Adds a product to the cart (quantity = n)
+ */
+
+URL = /cart/{cart-token}/{id-product}/{quantity}
+METHOD = POST
+
+
+
+/**
+ * Adds a product to the cart (quantity = 1)
+ */
+
+URL = /cart/{cart-token}/{id-product}
+METHOD = POST
+
+
+/**
+ * Retrieve quantity of product in cart
+ *
+ * @returns the quantity of the product in the cart
+ */
+
+URL = /cart/{cart-token}/{id-product}
+METHOD = GET
+
+
+/**
+ * Remove n qty of product in cart When product's quantity reach 0, product
+ * is deleted from cart
+ *
+ * @returns whether it was possible or not
+ */
+
+URL = /cart/{cart-token}/{id-product}/{quantity}
+METHOD = DELETE
+
+
+
+/**
+ * Set n as qty of a product in cart, When product's quantity reach 0,
+ * product is deleted from cart
+ */
+
+URL = /cart/{cart-token}/{id-product}/set/{quantity}
+METHOD = POST
+
+
+
+/**
+ * Removes a product from the cart
+ */
+
+URL = /cart/{cart-token}/{id-product}
+METHOD = DELETE

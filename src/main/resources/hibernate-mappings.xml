@@ -9,7 +9,7 @@
         <id name="id" column="application_id" access="field">
         	<generator class="native"/>
         </id>
-        <set name="carts" cascade="all" access="field" >
+        <set name="carts" cascade="all" access="field">
 	    	<key column="application_id" />
 	    	<one-to-many class="com.lifia.bd2.model.Cart" />
 	    </set>
