@@ -100,15 +100,6 @@ public class Cart {
       return products.get(productId);
     return 0;
   }
-  
-  /**
-   * It sets "quantity" to the product quantity for the specified "productId"
-   * the minimum quantity it's 1
-   */
-  public void setProductQuantity(String productId, int quantity) {
-    if (this.containsProduct(productId) && quantity > 0){
-      products.put(productId, quantity);
-    }
-  }
+
 
 }

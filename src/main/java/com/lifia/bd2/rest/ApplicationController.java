@@ -83,9 +83,40 @@ public class ApplicationController {
      public @ResponseBody void removeQuantityOfProduct(@PathVariable("cart-token") String cartToken, @PathVariable("id-product") String idProduct, @PathVariable("quantity") Integer qty) { 
        appService.removeQuantityOfProduct(cartToken,idProduct,qty);
      }
+     
+     /**
+      * Removes qty=1 product in cart
+      * @returns whether it was possible or not
+      */
+      @RequestMapping(value = "removeQuantityOfProduct/{cart-token}/{id-product}", method = RequestMethod.DELETE)
+      public @ResponseBody boolean removeQuantityOfProduct(@PathVariable("cart-token") String cartToken, @PathVariable("id-product") String idProduct) { 
+      int current= appService.getProductQuantity(cartToken,idProduct);
+      if(current<1)return false;
+      appService.setQuantity(cartToken,idProduct,current-1);
+      return true;
+      }
+
+       
+      /*
+      * Remove n qty of product in cart 
+      * @returns whether it was possible or not
+      */
+      @RequestMapping(value = "removeQuantityOfProduct/{cart-token}/{id-product}/{quantity}", method = RequestMethod.DELETE)
+      public @ResponseBody boolean removeQuantityOfProduct(@PathVariable("cart-token") String cartToken, @PathVariable("id-product") String idProduct, @PathVariable("quantity") Integer qty) { 
+      int current= appService.getProductQuantity(cartToken,idProduct);
+      if(qty>current)return false;
+      appService.setQuantity(cartToken,idProduct,current-qty);
+      return true;
+      }
+
+      /*
+      * Set n as qty of a product in cart 
+      */
+      @RequestMapping(value = "setQuantity/{cart-token}/{id-product}/{quantity}", method = RequestMethod.POST)
+      public @ResponseBody void setQuantity(@PathVariable("cart-token") String cartToken, @PathVariable("id-product") String idProduct, @PathVariable("quantity") Integer qty) {
+      appService.setQuantity(cartToken,idProduct,qty);
+      }
 	
 	//TODO: 
-	//add n qty of product to cart @RequestMapping(value = "addProduct/{cart-token}/{id-product}/{quantity}", method = RequestMethod.POST)
 	//retrieve products & qty in cart @RequestMapping(value = "getProducts/{cart-token}", method = RequestMethod.GET)
-	//set n as qty of product in cart @RequestMapping(value = "setQuantity/{cart-token}/{id-product}", method = RequestMethod.POST)
 }
