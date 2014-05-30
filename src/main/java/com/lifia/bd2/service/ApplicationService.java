@@ -1,9 +1,9 @@
 package com.lifia.bd2.service;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lifia.bd2.model.Application;
 import com.lifia.bd2.model.Cart;
@@ -66,10 +66,10 @@ public class ApplicationService {
       cart.setProduct(idProduct, i);
   }
    
-  public @ResponseBody Cart getCart(String cartToken) {
+  public Cart getCart(String cartToken) {
     Application app = getApp();
     Cart cart = app.getCartByToken(cartToken);
-    cart.getProducts();
+    Hibernate.initialize(cart.getProducts());
     return cart;
   }
   
