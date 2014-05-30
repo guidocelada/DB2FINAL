@@ -65,5 +65,9 @@ public class ApplicationService {
       cart.setProduct(idProduct, i);
   }
    
-
+  public Cart getCart(String cartToken) {
+    Application app = getApp();
+    return app.getCartByToken(cartToken);
+  }
+  
 }
