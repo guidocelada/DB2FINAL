@@ -16,7 +16,7 @@ public class Site {
     this.token = UUID.randomUUID().toString();
   }
   
-  public String getSiteName() {
+  public String getName() {
     return name;
   }
   
