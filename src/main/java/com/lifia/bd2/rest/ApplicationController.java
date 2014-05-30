@@ -1,5 +1,6 @@
 package com.lifia.bd2.rest;
 
+import com.lifia.bd2.model.Cart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -128,6 +129,13 @@ public class ApplicationController {
         appService.setQuantity(cartToken, idProduct, 0);
     }
 
-//TODO: 
-    //retrieve products & qty in cart @RequestMapping(value = "getProducts/{cart-token}", method = RequestMethod.GET)
+    /**
+     * Retrieves the cart
+     * @returns the full cart
+     */
+    @RequestMapping(value = "getCart/{cart-token}", method = RequestMethod.GET)
+    public @ResponseBody
+    Cart getCart(@PathVariable("cart-token") String cartToken) {
+        return appService.getCart(cartToken);
+    }
 }
