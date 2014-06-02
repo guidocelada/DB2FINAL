@@ -25,7 +25,7 @@
         </id>
         <property name="user" access="field"/>
         <property name="token" access="field"/>
-        <many-to-one name="site" class="com.lifia.bd2.model.Site" />
+        <many-to-one name="site" class="com.lifia.bd2.model.Site" access="field" />
         <map name="products" access="field">
 		    <key column="cart_id"/>
 		    <map-key type="string"/>

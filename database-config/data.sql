@@ -1,6 +1,5 @@
 CREATE DATABASE  IF NOT EXISTS DB2FINAL;
 USE DB2FINAL;
-
 # ************************************************************
 # Sequel Pro SQL dump
 # Version 4096
@@ -10,7 +9,7 @@ USE DB2FINAL;
 #
 # Host: 127.0.0.1 (MySQL 5.6.13)
 # Database: DB2FINAL
-# Generation Time: 2014-05-30 20:08:46 +0000
+# Generation Time: 2014-06-02 17:31:41 +0000
 # ************************************************************
 
 
@@ -38,7 +37,7 @@ LOCK TABLES `Application` WRITE;
 
 INSERT INTO `Application` (`application_id`)
 VALUES
-	(1);
+  (1);
 
 /*!40000 ALTER TABLE `Application` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -53,10 +52,13 @@ CREATE TABLE `Cart` (
   `cart_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user` varchar(255) DEFAULT NULL,
   `token` varchar(255) DEFAULT NULL,
+  `site` bigint(20) DEFAULT NULL,
   `application_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`cart_id`),
+  KEY `FK1FEF40A1FC454B` (`site`),
   KEY `FK1FEF401B168A5D` (`application_id`),
-  CONSTRAINT `FK1FEF401B168A5D` FOREIGN KEY (`application_id`) REFERENCES `Application` (`application_id`)
+  CONSTRAINT `FK1FEF401B168A5D` FOREIGN KEY (`application_id`) REFERENCES `Application` (`application_id`),
+  CONSTRAINT `FK1FEF40A1FC454B` FOREIGN KEY (`site`) REFERENCES `Site` (`site_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
