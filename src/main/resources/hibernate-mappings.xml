@@ -9,11 +9,11 @@
         <id name="id" column="application_id" access="field">
         	<generator class="native"/>
         </id>
-        <set name="carts" cascade="all" access="field">
+        <set name="carts" cascade="all,delete-orphan" access="field">
 	    	<key column="application_id" />
 	    	<one-to-many class="com.lifia.bd2.model.Cart" />
 	    </set>
-	    <set name="sites" cascade="all" access="field" >
+	    <set name="sites" cascade="all,delete-orphan" access="field" >
 	    	<key column="application_id" />
 	    	<one-to-many class="com.lifia.bd2.model.Site" />
 	    </set>
@@ -26,7 +26,7 @@
         <property name="user" access="field"/>
         <property name="token" access="field"/>
         <many-to-one name="site" class="com.lifia.bd2.model.Site" access="field" lazy="false" />
-        <map name="products" access="field">
+        <map name="products" access="field" cascade="all,delete-orphan">
 		    <key column="cart_id"/>
 		    <map-key type="string"/>
 		    <element type="integer"/>

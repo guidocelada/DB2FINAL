@@ -62,8 +62,12 @@ public class Cart {
    * If quantity equals 0, the product will be removed from the cart
    */
   public void setProduct(String productId,int quantity){
-      if(quantity<0)return;
-      if(quantity==0)removeProduct(productId);
+      if(quantity<0)
+        return;
+      if(quantity==0) {
+        removeProduct(productId);
+        return;
+      }
       products.put(productId,quantity);
   }
   
